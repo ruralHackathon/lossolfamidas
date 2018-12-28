@@ -3,10 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+            <link rel="stylesheet" href="{{ asset('build/appstyle.css') }}"> 
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> 
+            <link href='{{ asset('images/icono.ico') }}' rel='shortcut icon' type='image/x-icon'>
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        <script src="{{ asset('build/app.js') }}"></script>
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+
+        {% endblock %}
     </body>
 </html>

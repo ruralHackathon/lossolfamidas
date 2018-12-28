@@ -1,3 +1,10 @@
-body {
-    background-color: lightgray;
+@import '~bootstrap/dist/css/bootstrap.min.css';
+*{ margin:0; padding: 0; }
+#mapa{
+  height: 400px;
+  width: 500px;
+}
+.img-etiqueta {
+    height: 20px;
+    width: 20px;
 }
