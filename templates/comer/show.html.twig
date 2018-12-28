@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comer{% endblock %}
+
+{% block body %}
+    <h1>Comer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ comer.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('comer_index') }}">back to list</a>
+
+    <a href="{{ path('comer_edit', {'id': comer.id}) }}">edit</a>
+
+    {{ include('comer/_delete_form.html.twig') }}
+{% endblock %}

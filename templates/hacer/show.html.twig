@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hacer{% endblock %}
+
+{% block body %}
+    <h1>Hacer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hacer.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('hacer_index') }}">back to list</a>
+
+    <a href="{{ path('hacer_edit', {'id': hacer.id}) }}">edit</a>
+
+    {{ include('hacer/_delete_form.html.twig') }}
+{% endblock %}

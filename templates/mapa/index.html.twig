@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mapa index{% endblock %}
+
+{% block body %}
+    <h1>Mapa index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mapa in mapas %}
+            <tr>
+                <td>{{ mapa.id }}</td>
+                <td>
+                    <a href="{{ path('mapa_show', {'id': mapa.id}) }}">show</a>
+                    <a href="{{ path('mapa_edit', {'id': mapa.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('mapa_new') }}">Create new</a>
+{% endblock %}

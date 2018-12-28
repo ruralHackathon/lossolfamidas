@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eventos index{% endblock %}
+
+{% block body %}
+    <h1>Eventos index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evento in eventos %}
+            <tr>
+                <td>{{ evento.id }}</td>
+                <td>
+                    <a href="{{ path('eventos_show', {'id': evento.id}) }}">show</a>
+                    <a href="{{ path('eventos_edit', {'id': evento.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('eventos_new') }}">Create new</a>
+{% endblock %}
