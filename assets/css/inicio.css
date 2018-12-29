@@ -1,0 +1,25 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+nav{
+	background-color: #f2e8e8;	
+}
+#carousel{
+	margin-top: 60px;
+}
+h2{
+	color: #6cb43d;
+	padding-bottom: 100px;
+	padding-right: 530px;
+  font: small-caps 260% serif;
+  position: fixed;
+}
+a{
+	color:#6cb43d;
+	font-size: 12px;
+    letter-spacing: 1pt;
+    letter-spacing: 0.05em;
+    font: small-caps 88% serif;
+}
+a:hover{
+	color: #569031;
+
+}

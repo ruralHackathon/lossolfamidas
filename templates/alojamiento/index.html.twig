@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alojamiento index{% endblock %}
+
+{% block stylesheets %}
+   {{ encore_entry_link_tags('alojamientostyle') }}
+   <link href='{{ asset('images/logo.png') }}' rel='shortcut icon' type='image/x-icon'>
+            
+{% endblock %}
+
+{% block body %}
+<div class="container container-fluid">
+    <div class="row">
+        <h1><b>Alojamientos</b></h1>
+        <div class="row">
+                {% for alojamiento in alojamientos %}
+                    <div class="col-md-4">
+                       <a href="#mimodal" data-toggle="modal" class="amodal">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ alojamiento.url }}" height="200" alt="Card image cap">
+                                <div class="card-body">
+                                    <input value="{{alojamiento.id}}" type="hidden"></input>
+                                    <div class="card-title">
+                                        <h5><b>{{ alojamiento.nombre }}</b></h5>
+                                    </div>
+                                    <div class="card-text">
+                                        <p>{{ alojamiento.descripcion }}</p>
+                                    </div>
+                        
+                                    <hr>                                    
+                                    <div class="footer">
+                                        <span class="text-muted"><i class="fas fa-map-marker-alt"></i> {{ alojamiento.direccion }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                            
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    {{ encore_entry_script_tags('appalojamiento') }}
+
+{% endblock %}
+
+{% include 'alojamiento/modal.html.twig' %}
+{% endblock %}
