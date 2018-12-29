@@ -1,1 +1,14 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* INDEX */
+.img2_index_trans{
+	width: 100%;
+	height: 400px;
+}
+
+.titulo_foto2{
+	text-align: center;
+	font: small-caps 88% serif;
+	font-size: 80px;
+	margin-bottom: 10%;
+}

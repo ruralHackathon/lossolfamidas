@@ -3,12 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Hacer;
+use App\Entity\Imagen;
 use App\Form\HacerType;
 use App\Repository\HacerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
 
 /**
  * @Route("/hacer")
@@ -33,6 +38,27 @@ class HacerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($request->files->get('hacer')['fichero'] != null) {               
+                
+                $fichero = $request->files->get('hacer')['fichero'];
+                $fileName = md5(uniqid());
+                
+                $imagen = new Imagen();
+                $imagen->setNombre($fileName);
+                $imagen->setOriginal($fichero->getClientOriginalName());
+                $hacer->setImagen($imagen);
+                $imagen->setSize($fichero->getSize());
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $fichero->move(
+                        $this->getParameter('carpeta_imagenes'),
+                        $fileName
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+            }             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($hacer);
             $entityManager->flush();

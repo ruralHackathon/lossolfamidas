@@ -33,6 +33,27 @@ class TransporteController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($request->files->get('transporte')['fichero'] != null) {               
+                
+                $fichero = $request->files->get('transporte')['fichero'];
+                $fileName = md5(uniqid());
+                
+                $imagen = new Imagen();
+                $imagen->setNombre($fileName);
+                $imagen->setOriginal($fichero->getClientOriginalName());
+                $salud->setImagen($imagen);
+                $imagen->setSize($fichero->getSize());
+                // Move the file to the directory where brochures are stored
+                try {
+                    $fichero->move(
+                        $this->getParameter('carpeta_imagenes'),
+                        $fileName
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($transporte);
             $entityManager->flush();

@@ -1,11 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hacer index{% endblock %}
+{% block title %}¿Qué hacer?{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('quehacer') }}            
+    {% endblock %}
 
-{% block body %}
-    <h1>Hacer index</h1>
+{% block body %}    
+   <div id="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="img2_index_trans" src="/images/puestasol.jpg" border="1" alt="Este es el ejemplo de un texto alternativo"> 
+                <div class="carousel-caption">
+                <h1 class="titulo_foto2">¿Qué hacer?</h1>       
+            </div>          
+         </div>   
+    </div>
 
-    <table class="table">
+    {% for hacer in hacers|batch(3) %}   
+      <div class="row">
+        {% for hacer in hacers %}
+          <div  class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card h-100">
+              <a href="{{hacer.id}}">    
+                  <img class="card-img-top imgtodas" src="{{ asset(ruta_imagenes ~ hacer.imagen.nombre) }}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{ hacer.titulo}}</h5></a>        
+                  <div class="card-text">                                      
+                  </div>                            
+                </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <br>
+      <br>
+    {% endfor %}
+      
+    {#<table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,5 +60,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('hacer_new') }}">Create new</a>
+    <a href="{{ path('hacer_new') }}">Create new</a>#}
 {% endblock %}
