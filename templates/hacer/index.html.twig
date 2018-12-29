@@ -5,36 +5,42 @@
         {{ encore_entry_link_tags('quehacer') }}            
     {% endblock %}
 
-{% block body %}    
-   <div id="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="img2_index_trans" src="/images/puestasol.jpg" border="1" alt="Este es el ejemplo de un texto alternativo"> 
-                <div class="carousel-caption">
-                <h1 class="titulo_foto2">¿Qué hacer?</h1>       
-            </div>          
-         </div>   
-    </div>
-
-    {% for hacer in hacers|batch(3) %}   
+{% block body %}   
+  <div class="container-fluid"> 
+     <div id="carousel">
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img class="img2_index_trans" src="/images/puestasol.jpg" border="1" alt="Este es el ejemplo de un texto alternativo"> 
+                  <div class="carousel-caption">
+                  <h1 class="titulo_foto2">¿Qué hacer?</h1>       
+              </div>          
+           </div>   
+      </div>
+    <div class="container">
       <div class="row">
-        {% for hacer in hacers %}
-          <div  class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card h-100">
-              <a href="{{hacer.id}}">    
-                  <img class="card-img-top imgtodas" src="{{ asset(ruta_imagenes ~ hacer.imagen.nombre) }}" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">{{ hacer.titulo}}</h5></a>        
-                  <div class="card-text">                                      
-                  </div>                            
+        {% for hacer in hacers|batch(10) %}   
+          <div class="row">
+            {% for hacer in hacers %}
+              <div  class="col-xs-12 col-sm-6 col-md-4 espaciocard">
+                <div class="card h-100">
+                  <a href="{{hacer.id}}">    
+                      <img class="card-img-top imghacer" src="{{ asset(ruta_imagenes ~ hacer.imagen.nombre) }}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title textohacer">{{ hacer.titulo}}</h5></a>        
+                      <div class="card-text textohacer2">  
+                        <p class="texto_card">{{ hacer.texto|slice(0, 145) }}</p>
+                      </div>                            
+                    </div>
                 </div>
-            </div>
+              </div>
+            {% endfor %}
           </div>
+          <br>
+          <br>
         {% endfor %}
       </div>
-      <br>
-      <br>
-    {% endfor %}
+    </div>
+  </div>
       
     {#<table class="table">
         <thead>
@@ -58,7 +64,7 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table>#}
 
-    <a href="{{ path('hacer_new') }}">Create new</a>#}
+    <a href="{{ path('hacer_new') }}">Create new</a>
 {% endblock %}
