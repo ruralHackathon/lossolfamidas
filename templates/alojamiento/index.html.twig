@@ -3,8 +3,12 @@
 {% block title %}Alojamiento index{% endblock %}
 
 {% block stylesheets %}
+<<<<<<< HEAD
    {{ encore_entry_link_tags('alojamientostyle') }}
    <link href='{{ asset('images/logo.png') }}' rel='shortcut icon' type='image/x-icon'>
+=======
+   {{ encore_entry_link_tags('alojamiento') }}
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
             
 {% endblock %}
 
@@ -26,15 +30,22 @@
                                     <div class="card-text">
                                         <p>{{ alojamiento.descripcion }}</p>
                                     </div>
+<<<<<<< HEAD
                         
+=======
+                        </a>
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
                                     <hr>                                    
                                     <div class="footer">
                                         <span class="text-muted"><i class="fas fa-map-marker-alt"></i> {{ alojamiento.direccion }}</span>
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                         </a>
                             
+=======
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
                     </div>
                 {% endfor %}
         </div>
@@ -50,4 +61,11 @@
 {% endblock %}
 
 {% include 'alojamiento/modal.html.twig' %}
+<<<<<<< HEAD
 {% endblock %}
+=======
+{% endblock %}
+
+
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e

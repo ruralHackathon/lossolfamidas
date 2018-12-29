@@ -3,4 +3,10 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
+<<<<<<< HEAD
       ruta_imagenes: /images/
+=======
+      ruta_imagenes: /images/
+
+    
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e

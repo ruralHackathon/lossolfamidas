@@ -11,6 +11,10 @@ use App\Form\ImagenType;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
 class HacerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)

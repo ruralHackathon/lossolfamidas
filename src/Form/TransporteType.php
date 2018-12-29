@@ -11,6 +11,10 @@ class TransporteType extends AbstractType
         $builder
             ->add('url')
             ->add('titulo')
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
         ;
     }
     public function configureOptions(OptionsResolver $resolver)

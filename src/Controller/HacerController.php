@@ -11,6 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
 /**
  * @Route("/hacer")
  */
@@ -42,6 +47,10 @@ class HacerController extends AbstractController
                 $imagen->setOriginal($fichero->getClientOriginalName());
                 $hacer->setImagen($imagen);
                 $imagen->setSize($fichero->getSize());
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
                 // Move the file to the directory where brochures are stored
                 try {
                     $fichero->move(

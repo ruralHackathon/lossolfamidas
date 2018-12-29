@@ -1,12 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Eventos index{% endblock %}
+<<<<<<< HEAD
 
 {% block stylesheets %}
    {{ encore_entry_link_tags('eventostyle') }}
    <link href='{{ asset('images/logo.png') }}' rel='shortcut icon' type='image/x-icon'>
             
 {% endblock %}
+=======
+    {% block stylesheets %}
+       
+             {{ encore_entry_link_tags('evento') }}
+    {% endblock %}
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
 
 {% block body %}
    
@@ -42,6 +49,7 @@
    </div>
 </div>
 
+<<<<<<< HEAD
 {% block javascripts %}
     {{ parent() }}
     
@@ -50,5 +58,16 @@
 {% endblock %}
 
      {% include 'eventos/modal.html.twig' %}
+=======
+     {% include 'eventos/modal.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+
+          {{ parent() }}
+         {{ encore_entry_script_tags('appevento') }}
+        
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
 {% endblock %}
 

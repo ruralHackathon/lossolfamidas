@@ -3,10 +3,14 @@
 {% block title %}Comer index{% endblock %}
 
 {% block stylesheets %}
+<<<<<<< HEAD
 
    {{ encore_entry_link_tags('comerstyle') }}
    <link href='{{ asset('images/logo.png') }}' rel='shortcut icon' type='image/x-icon'>
             
+=======
+   {{ encore_entry_link_tags('comer') }}            
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
 {% endblock %}
 
 
@@ -16,6 +20,7 @@
         <h1><b>¿Dónde comemos?</b></h1>
         <div class="row">
                 {% for comer in comers %}
+<<<<<<< HEAD
 
                     <div class="col-md-4">
                      <a data-toggle="modal" class="amodal" href="#mimodal">
@@ -39,6 +44,28 @@
                            </div>
                         </a>
                    </div>
+=======
+                    <div class="col-md-4">
+                        <a href="#mimodal" data-toggle="modal" class="amodal">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ comer.url }}" height="200" alt="Card image cap">
+                                <div class="card-body">
+                                    <input value="{{comer.id}}" type="hidden"></input>
+                                    <div class="card-title">
+                                        <h5><b>{{ comer.nombre }}</b></h5>
+                                    </div>
+                                    <div class="card-text">
+                                        <p>{{ comer.descripcion }}</p>
+                                    </div>
+                        </a>
+                                    <hr>                                    
+                                    <div class="footer">
+                                        <span class="text-muted"><i class="fas fa-map-marker-alt"></i> {{ comer.direccion }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
                 {% endfor %}
         </div>
     </div>
@@ -50,7 +77,15 @@
     
     {{ encore_entry_script_tags('appcomer') }}
 
+<<<<<<< HEAD
 {% endblock %}
 
 {% include 'comer/modal.html.twig' %}
 {% endblock %}
+=======
+{% endblock %}
+
+{% include 'comer/modal.html.twig' %}
+{% endblock %}
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e

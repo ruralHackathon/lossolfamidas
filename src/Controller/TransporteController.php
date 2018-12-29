@@ -48,6 +48,10 @@ class TransporteController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($transporte);
             $entityManager->flush();

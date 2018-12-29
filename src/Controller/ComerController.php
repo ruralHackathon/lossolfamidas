@@ -10,6 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
 /**
  * @Route("/comer")
  */
@@ -76,6 +81,10 @@ class ComerController extends AbstractController
         }
         return $this->redirectToRoute('comer_index');
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
     /**
     * @Route("/{id}/json", name="comer_json", requirements={"id"="\d+"})
     */
@@ -95,4 +104,8 @@ class ComerController extends AbstractController
         $respuesta = new Response($jsonComer);
         return $respuesta;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e

@@ -94,6 +94,7 @@ class EventosController extends AbstractController
     /**
      * @Route("/{id}/json", name="evento_json", requirements={"id"="\d+"})
      */
+<<<<<<< HEAD
     public function jsonEvento($id, request $request)
     {
         $encoder = new JsonEncoder();
@@ -101,13 +102,41 @@ class EventosController extends AbstractController
        $normalizer->setCircularReferenceHandler(
             function ($object) {
              return $object->getId();
+=======
+
+    public function jsonEvento($id, request $request)
+
+    {
+
+        $encoder = new JsonEncoder();
+      $normalizer = new ObjectNormalizer();
+       $normalizer->setCircularReferenceHandler(
+
+
+            function ($object) {
+             return $object->getId();
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
             }
         );
       $serializer = new Serializer(array($normalizer), array($encoder));
         $repo = $this->getDoctrine()->getRepository(Eventos::class);
         $p = $repo->find($id);
+<<<<<<< HEAD
         $jsonEvento = $serializer->serialize($p, 'json');        
         $respuesta = new Response($jsonEvento);
         return $respuesta;
+=======
+
+        $jsonEvento = $serializer->serialize($p, 'json');        
+
+        $respuesta = new Response($jsonEvento);
+
+
+        return $respuesta;
+
+
+
+>>>>>>> dcf9c9a2110984771503bd8ffab06a90048f7c0e
     }
 }
