@@ -1,7 +1,8 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 $(document).ready(function() {  
-   
+
+    //mapa
     var marcadores = [];
 
     function mapaGoogle() {

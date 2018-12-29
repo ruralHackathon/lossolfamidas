@@ -1,13 +1,16 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 #mapa{
-  height: 550px;
-  width: 900px;
-}
-.cont {
+  margin-top: 60px;
+  margin-left: 80px;
+  height: 400px;
+  width: 750px;
   text-align: center;
 }
+.cont {
+  margin-top: 70px;
+}
 .img-map {
-    height: 170px;
-    width: 200px;
+  height: 170px;
+  width: 200px;
 }

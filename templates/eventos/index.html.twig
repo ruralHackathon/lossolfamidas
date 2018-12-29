@@ -2,32 +2,53 @@
 
 {% block title %}Eventos index{% endblock %}
 
-{% block body %}
-    <h1>Eventos index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for evento in eventos %}
-            <tr>
-                <td>{{ evento.id }}</td>
-                <td>
-                    <a href="{{ path('eventos_show', {'id': evento.id}) }}">show</a>
-                    <a href="{{ path('eventos_edit', {'id': evento.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('eventos_new') }}">Create new</a>
+{% block stylesheets %}
+   {{ encore_entry_link_tags('eventostyle') }}
+   <link href='{{ asset('images/logo.png') }}' rel='shortcut icon' type='image/x-icon'>
+            
 {% endblock %}
+
+{% block body %}
+   
+    <div class="container container-fluid">
+   <div class="row">
+       <h1><b>Eventos</b></h1>
+       <div class="row">
+               {% for evento in eventos %}
+                   <div class="col-md-4">
+                     <a data-toggle="modal" class="amodal" href="#mimodal">
+                      <input type="hidden" value="{{evento.id}}"></input>
+                           <div class="card">
+                               <img class="card-img-top" src="{{ evento.url }}" height="270" alt="Card image cap">
+                               <div class="card-body">
+                                   <div class="card-title">
+                                       <h5>{{ evento.titular }}</h5>
+                                   </div>
+                                   <div class="card-text">
+                                       <p>{{ evento.texto|slice(0, 140)  }}</p>
+                                   </div>
+                                
+                                   <hr>
+                                   <div class="footer">
+                                       <span class="text-muted"><i class="far fa-clock"></i> {{ evento.fechahora ? evento.fechahora|date('d/m/Y') : '' }}</span>
+                                       
+                                   </div>
+                               </div>
+                           </div>
+                        </a>
+                   </div>
+               {% endfor %}
+       </div>
+   </div>
+</div>
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    {{ encore_entry_script_tags('appevento') }}
+
+{% endblock %}
+
+     {% include 'eventos/modal.html.twig' %}
+{% endblock %}
+

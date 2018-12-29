@@ -10,8 +10,16 @@ Encore
 
     // will create public/build/app.js and public/build/app.css
     .addEntry('app', './assets/js/app.js')
+    .addEntry('appalojamiento', './assets/js/alojamiento.js')
+    .addEntry('appcomer', './assets/js/comer.js')
+    .addEntry('appevento', './assets/js/evento.js')
     // .addEntry('midatatable', './assets/js/midatatable.js')
     .addStyleEntry('appstyle', './assets/css/app.css')
+    .addStyleEntry('eventostyle', './assets/css/evento.css')
+    .addStyleEntry('alojamientostyle', './assets/css/alojamiento.css')
+    .addStyleEntry('comerstyle', './assets/css/comer.css')
+    .addStyleEntry('iniciostyle', './assets/css/inicio.css')
+   
    
 
 

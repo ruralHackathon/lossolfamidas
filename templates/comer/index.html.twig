@@ -2,32 +2,55 @@
 
 {% block title %}Comer index{% endblock %}
 
+{% block stylesheets %}
+
+   {{ encore_entry_link_tags('comerstyle') }}
+   <link href='{{ asset('images/logo.png') }}' rel='shortcut icon' type='image/x-icon'>
+            
+{% endblock %}
+
+
 {% block body %}
-    <h1>Comer index</h1>
+<div class="container container-fluid">
+    <div class="row">
+        <h1><b>¿Dónde comemos?</b></h1>
+        <div class="row">
+                {% for comer in comers %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for comer in comers %}
-            <tr>
-                <td>{{ comer.id }}</td>
-                <td>
-                    <a href="{{ path('comer_show', {'id': comer.id}) }}">show</a>
-                    <a href="{{ path('comer_edit', {'id': comer.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                    <div class="col-md-4">
+                     <a data-toggle="modal" class="amodal" href="#mimodal">
+                      <input type="hidden" value="{{comer.id}}"></input>
+                           <div class="card">
+                               <img class="card-img-top" src="{{ comer.url }}" height="270" alt="Card image cap">
+                               <div class="card-body">
+                                   <div class="card-title">
+                                       <h5>{{ comer.nombre }}</h5>
+                                   </div>
+                                   <div class="card-text">
+                                       <p>{{ comer.descripcion|slice(0, 140)  }}</p>
+                                   </div>
+                                
+                                   <hr>
+                                   <div class="footer">
+                                       <span class="text-muted"><i class="far fa-clock"></i> {{ comer.direccion }}</span>
+                                       
+                                   </div>
+                               </div>
+                           </div>
+                        </a>
+                   </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>
 
-    <a href="{{ path('comer_new') }}">Create new</a>
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    {{ encore_entry_script_tags('appcomer') }}
+
+{% endblock %}
+
+{% include 'comer/modal.html.twig' %}
 {% endblock %}

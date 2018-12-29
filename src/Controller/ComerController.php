@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use App\Entity\Comer;
 use App\Form\ComerType;
 use App\Repository\ComerRepository;
@@ -9,7 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 /**
  * @Route("/comer")
  */
@@ -22,7 +22,6 @@ class ComerController extends AbstractController
     {
         return $this->render('comer/index.html.twig', ['comers' => $comerRepository->findAll()]);
     }
-
     /**
      * @Route("/new", name="comer_new", methods={"GET","POST"})
      */
@@ -31,21 +30,17 @@ class ComerController extends AbstractController
         $comer = new Comer();
         $form = $this->createForm(ComerType::class, $comer);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comer);
             $entityManager->flush();
-
             return $this->redirectToRoute('comer_index');
         }
-
         return $this->render('comer/new.html.twig', [
             'comer' => $comer,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="comer_show", methods={"GET"})
      */
@@ -53,7 +48,6 @@ class ComerController extends AbstractController
     {
         return $this->render('comer/show.html.twig', ['comer' => $comer]);
     }
-
     /**
      * @Route("/{id}/edit", name="comer_edit", methods={"GET","POST"})
      */
@@ -61,19 +55,15 @@ class ComerController extends AbstractController
     {
         $form = $this->createForm(ComerType::class, $comer);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('comer_index', ['id' => $comer->getId()]);
         }
-
         return $this->render('comer/edit.html.twig', [
             'comer' => $comer,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="comer_delete", methods={"DELETE"})
      */
@@ -84,7 +74,25 @@ class ComerController extends AbstractController
             $entityManager->remove($comer);
             $entityManager->flush();
         }
-
         return $this->redirectToRoute('comer_index');
+    }
+    /**
+    * @Route("/{id}/json", name="comer_json", requirements={"id"="\d+"})
+    */
+    public function jsonComer($id, Request $request)
+    {
+        $encoder = new JsonEncoder();
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceHandler(
+            function ($object) {
+                return $object->getId();
+            }
+        );
+        $serializer = new Serializer(array($normalizer), array($encoder));
+        $repo = $this->getDoctrine()->getRepository(Comer::class);
+        $comer = $repo->find($id);
+        $jsonComer = $serializer->serialize($comer, 'json');        
+        $respuesta = new Response($jsonComer);
+        return $respuesta;
     }
 }

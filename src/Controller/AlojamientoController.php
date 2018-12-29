@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use App\Entity\Alojamiento;
 use App\Form\AlojamientoType;
 use App\Repository\AlojamientoRepository;
@@ -9,7 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 /**
  * @Route("/alojamiento")
  */
@@ -22,7 +22,6 @@ class AlojamientoController extends AbstractController
     {
         return $this->render('alojamiento/index.html.twig', ['alojamientos' => $alojamientoRepository->findAll()]);
     }
-
     /**
      * @Route("/new", name="alojamiento_new", methods={"GET","POST"})
      */
@@ -31,21 +30,17 @@ class AlojamientoController extends AbstractController
         $alojamiento = new Alojamiento();
         $form = $this->createForm(AlojamientoType::class, $alojamiento);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($alojamiento);
             $entityManager->flush();
-
             return $this->redirectToRoute('alojamiento_index');
         }
-
         return $this->render('alojamiento/new.html.twig', [
             'alojamiento' => $alojamiento,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="alojamiento_show", methods={"GET"})
      */
@@ -53,7 +48,6 @@ class AlojamientoController extends AbstractController
     {
         return $this->render('alojamiento/show.html.twig', ['alojamiento' => $alojamiento]);
     }
-
     /**
      * @Route("/{id}/edit", name="alojamiento_edit", methods={"GET","POST"})
      */
@@ -61,19 +55,15 @@ class AlojamientoController extends AbstractController
     {
         $form = $this->createForm(AlojamientoType::class, $alojamiento);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('alojamiento_index', ['id' => $alojamiento->getId()]);
         }
-
         return $this->render('alojamiento/edit.html.twig', [
             'alojamiento' => $alojamiento,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="alojamiento_delete", methods={"DELETE"})
      */
@@ -84,7 +74,25 @@ class AlojamientoController extends AbstractController
             $entityManager->remove($alojamiento);
             $entityManager->flush();
         }
-
         return $this->redirectToRoute('alojamiento_index');
+    }
+     /**
+    * @Route("/{id}/json", name="alojamiento_json", requirements={"id"="\d+"})
+    */
+    public function jsonAlojamiento($id, Request $request)
+    {
+        $encoder = new JsonEncoder();
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceHandler(
+            function ($object) {
+                return $object->getId();
+            }
+        );
+        $serializer = new Serializer(array($normalizer), array($encoder));
+        $repo = $this->getDoctrine()->getRepository(Alojamiento::class);
+        $alojamiento = $repo->find($id);
+        $jsonAlojamiento = $serializer->serialize($alojamiento, 'json');        
+        $respuesta = new Response($jsonAlojamiento);
+        return $respuesta;
     }
 }
