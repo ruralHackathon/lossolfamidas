@@ -12,6 +12,8 @@ Encore
     .addEntry('app', './assets/js/app.js')
     // .addEntry('midatatable', './assets/js/midatatable.js')
     .addStyleEntry('appstyle', './assets/css/app.css')
+    .addStyleEntry('inicio', './assets/css/inicio.css') 
+    .addStyleEntry('evento', './assets/css/evento.css')
    
 
 
@@ -19,10 +21,7 @@ Encore
     // allow legacy applications to use $/jQuery as a global variable
     .autoProvidejQuery()
 
-    // enable source maps during development
-    .addEntry('appevento', './assets/js/evento.js')
-    .addStyleEntry('inicio', './assets/css/inicio.css') 
-    .addStyleEntry('evento', './assets/css/evento.css') 
+    // enable source maps during development 
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
