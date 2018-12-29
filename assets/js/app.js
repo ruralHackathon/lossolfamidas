@@ -44,7 +44,7 @@ $(document).ready(function() {
               
               google.maps.event.addListener(marcador, 'click', (function(marcador, i) {
                 return function() {
-                  infowindow.setContent('<a href="https://www.google.com.br/maps/dir/'+localidades[i][1]+','+localidades[i][2]+'/@'+localidades[i][1]+','+localidades[i][2]+'"><h3>'+localidades[i][0]+'</h3>'+'<p>'+localidades[i][4]+'</p>'+'<img class="img-map" src="'+localidades[i][3]+'"></a>');
+                  infowindow.setContent('<h3>'+localidades[i][0]+'</h3>'+'<p>'+localidades[i][4]+'</p>'+'<img class="img-map" src="'+localidades[i][3]+'"><p><hr><a href="https://www.google.com.br/maps/dir/'+localidades[i][1]+','+localidades[i][2]+'/@'+localidades[i][1]+','+localidades[i][2]+'"><button type="button" class="btn btn-success">Ir a Google Maps</button></a></p>');
                   infowindow.open(mapa, marcador);
                 }
               })(marcador, i));
