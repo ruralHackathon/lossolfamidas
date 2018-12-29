@@ -9,6 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
 
 /**
  * @Route("/comer")
@@ -86,5 +90,25 @@ class ComerController extends AbstractController
         }
 
         return $this->redirectToRoute('comer_index');
+    }
+
+    /**
+    * @Route("/{id}/json", name="comer_json", requirements={"id"="\d+"})
+    */
+    public function jsonComer($id, Request $request)
+    {
+        $encoder = new JsonEncoder();
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceHandler(
+            function ($object) {
+                return $object->getId();
+            }
+        );
+        $serializer = new Serializer(array($normalizer), array($encoder));
+        $repo = $this->getDoctrine()->getRepository(Comer::class);
+        $comer = $repo->find($id);
+        $jsonComer = $serializer->serialize($comer, 'json');        
+        $respuesta = new Response($jsonComer);
+        return $respuesta;
     }
 }

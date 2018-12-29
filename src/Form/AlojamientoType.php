@@ -12,6 +12,10 @@ class AlojamientoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('nombre')
+            ->add('descripcion')
+            ->add('direccion')
+            ->add('url')    
         ;
     }
 

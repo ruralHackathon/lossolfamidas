@@ -2,32 +2,52 @@
 
 {% block title %}Alojamiento index{% endblock %}
 
-{% block body %}
-    <h1>Alojamiento index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for alojamiento in alojamientos %}
-            <tr>
-                <td>{{ alojamiento.id }}</td>
-                <td>
-                    <a href="{{ path('alojamiento_show', {'id': alojamiento.id}) }}">show</a>
-                    <a href="{{ path('alojamiento_edit', {'id': alojamiento.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('alojamiento_new') }}">Create new</a>
+{% block stylesheets %}
+   {{ encore_entry_link_tags('alojamiento') }}
+            
 {% endblock %}
+
+{% block body %}
+<div class="container container-fluid">
+    <div class="row">
+        <h1><b>Alojamientos</b></h1>
+        <div class="row">
+                {% for alojamiento in alojamientos %}
+                    <div class="col-md-4">
+                       <a href="#mimodal" data-toggle="modal" class="amodal">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ alojamiento.url }}" height="200" alt="Card image cap">
+                                <div class="card-body">
+                                    <input value="{{alojamiento.id}}" type="hidden"></input>
+                                    <div class="card-title">
+                                        <h5><b>{{ alojamiento.nombre }}</b></h5>
+                                    </div>
+                                    <div class="card-text">
+                                        <p>{{ alojamiento.descripcion }}</p>
+                                    </div>
+                        </a>
+                                    <hr>                                    
+                                    <div class="footer">
+                                        <span class="text-muted"><i class="fas fa-map-marker-alt"></i> {{ alojamiento.direccion }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    {{ encore_entry_script_tags('appalojamiento') }}
+
+{% endblock %}
+
+{% include 'alojamiento/modal.html.twig' %}
+{% endblock %}
+
+
+
