@@ -16,6 +16,7 @@
                {% for evento in eventos %}
                    <div class="col-md-4">
                      <a data-toggle="modal" class="amodal" href="#mimodal">
+                      <input type="hidden" value="{{evento.id}}"></input>
                            <div class="card">
                                <img class="card-img-top" src="{{ evento.url }}" height="270" alt="Card image cap">
                                <div class="card-body">
@@ -25,14 +26,16 @@
                                    <div class="card-text">
                                        <p>{{ evento.texto|slice(0, 140)  }}</p>
                                    </div>
-                                 </a>
+                                    
+                                
                                    <hr>
                                    <div class="footer">
                                        <span class="text-muted"><i class="far fa-clock"></i> {{ evento.fechahora ? evento.fechahora|date('d/m/Y') : '' }}</span>
-                                       <input type="hidden" value="5"> 
+                                       
                                    </div>
                                </div>
                            </div>
+                            </a>
                    </div>
                {% endfor %}
        </div>

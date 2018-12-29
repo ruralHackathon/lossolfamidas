@@ -4,9 +4,9 @@
 $(document).ready (function () {
 
 	$('.amodal').on('click', function () {
-
-      	var id = $(this).find('input').val();
-        console.log(5);
+console.log(this);
+      	var id = $(this).find('input').attr('value');
+        console.log(id);
         $.ajax({
 			    method: "get",
 			    data: {},
