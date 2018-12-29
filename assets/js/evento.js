@@ -1,4 +1,5 @@
- import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 	
 $(document).ready (function () {
@@ -7,15 +8,15 @@ $(document).ready (function () {
 console.log(this);
       	var id = $(this).find('input').attr('value');
         console.log(id);
+
         $.ajax({
-			    method: "get",
-			    data: {},
-			    url: "/eventos/"+id+"/json",
-			    dataType: "json",
+        		type: 'POST',
+			    url: '/eventos/'+id+'/json',
+			    dataType: 'json',
 			    success: function (datos) { 
 
 			    	//Rellenar el modal con los datos			    
-			    	$('.col-md-7 img').attr('src',(datos.url));
+			    	
 			    	$('.col-md-5 h5').text(datos.titular);
 			    	$('.col-md-5 p:nth-of-type(1)').text(datos.texto);
 			    	
@@ -24,6 +25,9 @@ console.log(this);
 					//Mostar el modal
 					$('#myModal').modal('show');
 
+			    },
+			    error: function() {
+			    	console.log( "La solicitud no se ha completado correctamente." );
 			    }
 
 			});

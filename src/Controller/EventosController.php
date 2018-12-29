@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * @Route("/eventos")
@@ -90,21 +92,20 @@ class EventosController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/json", name="eventos_json", requirements={"id"="\d+"})
+     * @Route("/{id}/json", name="evento_json", requirements={"id"="\d+"})
      */
 
-    public function jsonEventos($id, request $request)
+    public function jsonEvento($id, request $request)
 
     {
 
-      $encoder = new JsonEncoder();
+        $encoder = new JsonEncoder();
       $normalizer = new ObjectNormalizer();
-      $normalizer->setCircularReferenceHandler(
+       $normalizer->setCircularReferenceHandler(
 
 
             function ($object) {
              return $object->getId();
-
 
             }
 
@@ -117,13 +118,12 @@ class EventosController extends AbstractController
 
         $p = $repo->find($id);
 
-        $jsonEventos = $serializer->serialize($p, 'json');        
+        $jsonEvento = $serializer->serialize($p, 'json');        
 
-        $respuesta = new Response($jsonEventos);
+        $respuesta = new Response($jsonEvento);
 
 
         return $respuesta;
-
 
 
 
