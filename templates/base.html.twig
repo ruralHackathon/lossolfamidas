@@ -14,7 +14,7 @@
         {% block body %}{% endblock %}
         {% block javascripts %}
         <script src="{{ asset('build/app.js') }}"></script>
-        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
         {% endblock %}
     </body>

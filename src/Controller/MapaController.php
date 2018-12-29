@@ -24,6 +24,14 @@ class MapaController extends AbstractController
     }
 
     /**
+     * @Route("/coordenadas", name="json-coordenadas", methods={"GET"})
+     */
+    public function jsonCoordenadas(MapaRepository $mapaRepository): Response
+    {
+        return $this->render('mapa/coordenadas.json');
+    }
+
+    /**
      * @Route("/new", name="mapa_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

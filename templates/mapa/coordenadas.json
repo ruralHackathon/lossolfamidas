@@ -1,0 +1,140 @@
+{ 
+    "lugares":[
+        {
+            "monumento": "Tumbas Antropomórficas",
+            "coordenadas":{
+                "latitud": 39.218308,
+                "longitud": -7.002342
+            },
+            "url": "http://4.bp.blogspot.com/-e7EobG7FxLk/UcQk8VhK4_I/AAAAAAAAHq0/HtziOV2SHa0/s1600/IMG_9176.JPG",
+            "descripcion": "Situadas en uno de los laterales de la Iglesia de Santa María del Mercado. Hace miles de años, en una etapa clave para la historia de la humanidad, contemporáneo de dos grandes logros de la civilización, la escritura y la metalurgia, se excavaban sepulcros en la piedra utilizadas para enterramientos colectivos."
+        },
+        {
+            "monumento": "Paseo de la Alameda",
+            "coordenadas":{
+                "latitud": 39.219249,
+                "longitud": -7.000578
+            },
+            "url": "https://cloud10.todocoleccion.online/postales-extremadura/tc/2009/06/02/13594996.jpg",
+            "descripcion": "El paseo de la Alameda es uno de los lugares más emblematicos de la localidad. Se encuentra en el centro, junto a la plaza de España. "
+        },
+        {
+            "monumento": "Paseo de las Laderas",
+            "coordenadas":{
+                "latitud": 39.216670,
+                "longitud": -7.003125
+            },
+            "url": "https://airdroneview.files.wordpress.com/2015/07/escenario-contempopranea-2015-alburquerque-air-drone-view-01.jpg",
+            "descripcion": "En la ladera del castillo se encuentra este hermoso paseo. Muy querido por los habitantes debido a su gran belleza."
+        },
+        {
+            "monumento": "Iglesia San Mateo",
+            "coordenadas":{
+                "latitud": 39.218215,
+                "longitud": -6.999927
+            },
+            "url": "https://4.bp.blogspot.com/-szrVaoZTBs0/UGk37a174mI/AAAAAAAAFGs/_c6uTEsfvcg/s1600/san+mateo.JPG",
+            "descripcion": "Situada en el centro del pueblo, frente a la puerta de la villa. Actualmente es la iglesia más utilizada."
+        },
+        {
+            "monumento": "Fuente del Caño",
+            "coordenadas":{
+                "latitud": 39.212153,
+                "longitud": -6.996622
+            },
+            "url": "https://mediateca.educa.madrid.org/imagen.php?id=yvepldhbvun2ryzn&m=0&ext=.jpg",
+            "descripcion": "Esta fuente, utilizada en las posteridad para abastecerse de agua. Hoy en día se encuentra cerrada."
+        },
+        {
+            "monumento": "Iglesia Santa María del Mercado",
+            "coordenadas":{
+                "latitud": 39.218255,
+                "longitud": -7.000762
+            },
+            "url": "http://www.porterrasraianas.com/images/wn21/web/1024/001.jpg",
+            "descripcion": "La Iglesia de Santa María del Mercado está emplazada intramuros de la población, es decir, Villa Adentro, próxima a la puerta de ingreso al recinto del poderoso castillo. Al parecer el nombre de la Iglesia procede de su ubicación ante la plazoleta en la que antiguamente se celebraba el mercado."
+        },
+        {
+            "monumento": "Iglesia de San Francisco",
+            "coordenadas":{
+                "latitud": 39.223106,
+                "longitud": -7.000762
+            },
+            "url": "http://www.porterrasraianas.com/images/wn21/web/1006/001.jpg",
+            "descripcion": "El convento consta de un claustro con tres arcos por cada lado, apoyados en columnas pareadas y una composición de cuatro en los ángulos, todas de orden toscano. El claustro superior tiene arcos rebajados, sobre pilastras de ladrillo, que se encuentran blanqueadas. A la Iglesia se accede a través de un atrio situado al Sur, cuya portada de arco de medio punto está realizada en cantería, rematada en una hornacina con la imagen en piedra de San Francisco."
+        },
+        {
+            "monumento": "Piedra del Berrocal",
+            "coordenadas":{
+                "latitud": 39.218028,
+                "longitud": -6.998260
+            },
+            "url": "http://static.panoramio.com/photos/original/28250294.jpg",
+            "descripcion": "Muy cerca de las faldas del castillo encontramos un estrecha calle llamada C/ Rosario donde se conserva la famosa Piedra del Berrocal. Un berrocal es una conjunto de piedras graníticas agrupadas denominadas berruecos o bolones."
+        },
+        {
+            "monumento": "Plaza de España",
+            "coordenadas":{
+                "latitud": 39.218744,
+                "longitud": -6.999635
+            },
+            "url": "https://photo980x880.mnstatic.com/1b3616c8836b63356bd4cf2577d54a61/plaza-de-espana.jpg",
+            "descripcion": "En el epicentro de la localidad, se encuentra la plaza de España."
+        },
+        {
+            "monumento": "Pinturas Rupestres",
+            "coordenadas":{
+                "latitud": 39.221776,
+                "longitud": -7.016119
+            },
+            "url": "http://www.turismoextremadura.com/viajar/shared/galerias/rrtt/monumentos/monumento_00033/img/A_ABRIGOS_RISCO_SANBLAS_04.JPG",
+            "descripcion": "El abrigo del risco de San Blas. Estas pinturas pertenecen a la Edad de Bronce y se pueden encontrar en el Risco de San Blas, cercanas a la piscina municipal. En la cara sur de esta sierra se encuentra uno de los principales abrigos de pinturas esquemáticas de la región."
+        },
+        {
+            "monumento": "Castillo de Luna",
+            "coordenadas":{
+                "latitud": 39.217425,
+                "longitud": -7.002289
+            },
+            "url": "http://www.viajarporextremadura.com/cubic/datos/docs/doc_371/imag_1812_castillo_alburquerque_extremadura_01.jpg",
+            "descripcion": "Construido con mampuesto y sillarejos, en sus partes más nobles, constituye uno de los bastiones medievales más formidables de los que se conservan en Extremadura y en la raya ibérica y uno de los mejores exponentes de la arquitectura medieval. Declarado Monumento Nacional en 1924."
+        },
+        {
+            "monumento": "Puerta de Valencia",
+            "coordenadas":{
+                "latitud": 39.218950,
+                "longitud": -7.003886
+            },
+            "url": "http://www.sierrasanpedrobaldios.com/Imagenes/Patrimonio/01_Puerta_de_Valencia.jpg",
+            "descripcion": "Se halla flanqueada por dos torres cilíndricas de 13 metros de altura y consta de dos puertas, la 1ª de medio punto y la 2ª ojival. Merece la pena resaltar la importancia del sistema defensivo de esta entrada que comenzaba con el obstáculo de un rastrillo, seguido de una puerta, unida a otra a través de un pasillo."
+        },
+        {
+            "monumento": "Torre de Bacas",
+            "coordenadas":{
+                "latitud": 39.218023,
+                "longitud": -7.001837
+            },
+            "url": "https://www.nuevoportal.com/andando/images/extrema/alburquerque/vista.JPG",
+            "descripcion": "En la parte interior de dicha puerta se halla una capilla abierta a modo de terraza y rematada por un campanil, todo ello de construcción más tardía."
+        },
+        {
+            "monumento": "Torre del Reloj",
+            "coordenadas":{
+                "latitud": 39.218631,
+                "longitud": -7.000155
+            },
+            "url": "http://4.bp.blogspot.com/-eXIGA1atXHI/UcQ1eqxPMII/AAAAAAAAHtk/QvtQ3gFSIqI/s1600/IMG_9099.JPG",
+            "descripcion": "La Torre del Reloj o de la Villa se encuentra en la calle Antonio Cuéllar, y pertenece a la Muralla urbana de Alburquerque, frente a la plaza de España."
+        },
+        {
+            "monumento": "Puerta de la Villa",
+            "coordenadas":{
+                "latitud": 39.218244,
+                "longitud": -7.000253
+            },
+            "url": "https://1.bp.blogspot.com/-TNDLN00lbEw/Wgv-O7VExtI/AAAAAAAACL8/bGJr82kr7CcgBoFTOeib9TI3q1e3daAMACKgBGAs/s1600/IMG_20170905_113707_068.jpg",
+            "descripcion": "Está situada enfrente de la Iglesia de San Mateo. Consta de una torre saliente de planta cuadrada; sobre el arco exterior se conservaba el escudo de armas de D. Alonso Sánchez, hijo bastardo del Rey portugués D. Dinis I, junto a una inscripción en portugués antiguo, donde se indica el comienzo de está obra en 1276 (hoy en el museo arqueológico de Badajoz)."
+        }
+    ]
+    
+}
