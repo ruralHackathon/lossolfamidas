@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use App\Entity\Transporte;
 use App\Form\TransporteType;
 use App\Repository\TransporteRepository;
@@ -9,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 /**
  * @Route("/transporte")
  */
@@ -22,7 +19,6 @@ class TransporteController extends AbstractController
     {
         return $this->render('transporte/index.html.twig', ['transportes' => $transporteRepository->findAll()]);
     }
-
     /**
      * @Route("/new", name="transporte_new", methods={"GET","POST"})
      */
@@ -31,21 +27,37 @@ class TransporteController extends AbstractController
         $transporte = new Transporte();
         $form = $this->createForm(TransporteType::class, $transporte);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($request->files->get('transporte')['fichero'] != null) {               
+                
+                $fichero = $request->files->get('transporte')['fichero'];
+                $fileName = md5(uniqid());
+                
+                $imagen = new Imagen();
+                $imagen->setNombre($fileName);
+                $imagen->setOriginal($fichero->getClientOriginalName());
+                $salud->setImagen($imagen);
+                $imagen->setSize($fichero->getSize());
+                // Move the file to the directory where brochures are stored
+                try {
+                    $fichero->move(
+                        $this->getParameter('carpeta_imagenes'),
+                        $fileName
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($transporte);
             $entityManager->flush();
-
             return $this->redirectToRoute('transporte_index');
         }
-
         return $this->render('transporte/new.html.twig', [
             'transporte' => $transporte,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="transporte_show", methods={"GET"})
      */
@@ -53,7 +65,6 @@ class TransporteController extends AbstractController
     {
         return $this->render('transporte/show.html.twig', ['transporte' => $transporte]);
     }
-
     /**
      * @Route("/{id}/edit", name="transporte_edit", methods={"GET","POST"})
      */
@@ -61,19 +72,15 @@ class TransporteController extends AbstractController
     {
         $form = $this->createForm(TransporteType::class, $transporte);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('transporte_index', ['id' => $transporte->getId()]);
         }
-
         return $this->render('transporte/edit.html.twig', [
             'transporte' => $transporte,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="transporte_delete", methods={"DELETE"})
      */
@@ -84,7 +91,6 @@ class TransporteController extends AbstractController
             $entityManager->remove($transporte);
             $entityManager->flush();
         }
-
         return $this->redirectToRoute('transporte_index');
     }
 }
