@@ -20,6 +20,25 @@ Encore
     .autoProvidejQuery()
 
     // enable source maps during development
+    .addEntry('appevento', './assets/js/evento.js')
+    .addStyleEntry('inicio', './assets/css/inicio.css') 
+    .addStyleEntry('evento', './assets/css/evento.css') 
+    //.addEntry('page1', './assets/js/page1.js')
+    //.addEntry('page2', './assets/js/page2.js')
+
+    // will require an extra script tag for runtime.js
+    // but, you probably want this, unless you're building a single-page app
+    .enableSingleRuntimeChunk()
+
+    /*
+     * FEATURE CONFIG
+     *
+     * Enable & configure other features below. For a full
+     * list of features, see:
+     * https://symfony.com/doc/current/frontend.html#adding-more-features
+     */
+    .cleanupOutputBeforeBuild()
+    .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
 
     // empty the outputPath dir before each build
