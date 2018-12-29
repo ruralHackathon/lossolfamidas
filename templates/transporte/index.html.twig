@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transportes{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('quehacer') }}  
+        <link href='{{ asset('images/logo.png') }}' rel='shortcut icon' type='image/x-icon'>          
+    {% endblock %}
+
+{% block body %}
+
+<div class="container container-fluid">
+   <div class="row">
+       <h1><b>Transportes</b></h1>
+    
+        
+    <div class="container container-fluid">         
+        <div class="row centrar_cuadros">
+            <div class="col-md-4">
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header centrar">Damas</div>
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title">Autobús</h5>
+                            <p class="card-text">Consulta la página web y elige su hora y destino.</p>
+                            <a class="enlace" href="http://www.damas-sa.es/index.php/rutas-y-horarios/">Página Damas</a>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header centrar">Paniagua</div>
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title">Autobús y coche</h5>
+                            <p class="card-text">Llega a tu destino de la forma más cómoda y segura.</p>
+                            <a class="enlace" href="http://autocarespaniagua.com/">Página Paniagua</a>
+                            
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header centrar">Taxi 24h</div>
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title">Coche</h5>
+                            <p class="card-text">Taxis que se encuentran disponibles en la localidad.</p>
+                             <a class="enlace" href=" http://www.taxis24h.com/taxis-en-alburquerque/">taxis24h.com</a>
+                           
+                        </div>
+                </div>
+            </div>
+               
+        </div>
+
+       
+    </div>
+    </div>
+    </div>
+
+    {#<a href="{{ path('transporte_new') }}">Create new</a>#}
+{% endblock %}

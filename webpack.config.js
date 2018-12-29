@@ -19,6 +19,7 @@ Encore
     .addStyleEntry('alojamientostyle', './assets/css/alojamiento.css')
     .addStyleEntry('comerstyle', './assets/css/comer.css')
     .addStyleEntry('iniciostyle', './assets/css/inicio.css')
+    .addStyleEntry('quehacer', './assets/css/quehacer.css')
    
    
 
