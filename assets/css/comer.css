@@ -1,0 +1,36 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.card-title{
+	height: 50px;
+}
+.card-text{
+	height: 170px;
+}
+
+.card .footer{
+	height: 35px;
+}
+
+.container.container-fluid .row .row .col-md-4 .card .card-body .card-title h5{
+    color:#6cb43d;
+   letter-spacing: 1pt;
+   letter-spacing: 0.05em;
+   font: small-caps 123% serif;
+   text-align: center;
+   margin-top: 10px;
+}
+.container.container-fluid .row .row .col-md-4 .card .card-body .card-title h5:hover{
+    color: #569031;
+    cursor: pointer;
+}
+.container.container-fluid .row .row .col-md-4 .card .card-body .card-text p{
+    color: black;
+    text-align: center;
+}
+.container.container-fluid .row .row .col-md-4 .card .card-body .footer{    
+    color: #98999a;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-align: right;
+}
